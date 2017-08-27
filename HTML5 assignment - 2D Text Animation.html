@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Assignment Animirani tekst</title>
+
+<style type="text/css">
+	#myCanvas {
+		background:#55CC11;
+		border:1px solid #000;
+	}
+</style>
+
+<script type="text/javascript">
+	window.onload = function() {
+		var podatak = document.getElementById('myCanvas');
+		
+		if (podatak && podatak.getContext) {
+			var context = podatak.getContext('2d');
+			if (context) {
+				
+				var textX = 80;
+				var textY = 180;
+				var clearX = textX;
+				
+				context.font = "26px Arial";
+				context.textAlign = "left";
+				context.fillStyle = "blue";
+				context.textBaseline = "top";
+				
+				
+				function animation() {
+					if (clearX < context.canvas.width) {
+						context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+						
+						context.fillText("KAKAV  DIVAN  DAN", textX, textY);
+						context.clearRect(clearX, textY, context.canvas.width-clearX, 100);
+					
+						clearX += 90;
+					}
+					else {
+						clearX = textX;
+					}
+				}
+				
+				setInterval(animation, 1000);
+			
+			}
+		}
+	}
+</script>
+
+</head>
+
+<body>
+
+	<canvas id="myCanvas" align:center width="1800" height="900">tvoj browser ne podrzava Canvas!</canvas>
+    
+</body>
+</html>
