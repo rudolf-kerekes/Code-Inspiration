@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>15</title>
+
+<style type="text/css">
+	#myCanvas {
+		background:#fff;
+		border:1px solid #000;
+	}
+</style>
+<script type="text/javascript">
+     window.onload = function() { var elem = document.getElementById('myCanvas');
+		
+		if (elem && elem.getContext) { var context = elem.getContext('2d');			
+		if (context) {function clock() {	var now = new Date();													
+					context.save();
+					context.clearRect(0,0,150,150);
+					context.translate(75,75);
+					context.scale(0.4,0.4);
+					context.rotate(-Math.PI/2);
+					context.strokeStyle = "#000";
+					context.fillStyle = "#FFF";
+					context.lineWidth = 6;
+					
+					// Sati
+					context.save();
+					for (var i=0;i<12;i++){
+					context.beginPath();
+					context.rotate(Math.PI/6);
+					context.moveTo(90,0);
+					context.lineTo(120,0);
+					context.stroke();
+					}
+					context.restore();
+				
+					// Minuti
+					context.save();
+					context.lineWidth = 5;
+					context.strokeStyle = "#999";
+					for (i=0;i<60;i++){
+						if (i%5!=0) {
+						  context.beginPath();
+						  context.moveTo(110,0);
+						  context.lineTo(120,0);
+						  context.stroke();
+						}
+						context.rotate(Math.PI/30);
+					}
+					context.restore();
+		
+					var sec = now.getSeconds();
+					var min = now.getMinutes();
+					var hr  = now.getHours();
+					hr = hr>=12 ? hr-12 : hr;
+					
+					context.fillStyle = "#000";
+					
+					// Hours
+					context.save();
+					context.rotate( hr*(Math.PI/6) + (Math.PI/360)*min + (Math.PI/21600)*sec )
+					context.lineWidth = 14;
+					context.beginPath();
+					context.moveTo(-40,0);
+					context.lineTo(80,0);
+					context.stroke();
+					context.restore();
+					
+					// Minuti
+					context.save();
+					context.rotate( (Math.PI/30)*min + (Math.PI/1800)*sec )
+					context.lineWidth = 10;
+					context.beginPath();
+					context.moveTo(-30,0);
+					context.lineTo(112,0);
+					context.stroke();
+					context.restore();
+					
+					// Sekunde
+					context.save();
+					context.rotate(sec * Math.PI/30);
+					context.strokeStyle = "#E31B23";
+					context.fillStyle = "#E31B23";
+					context.lineWidth = 6;
+					context.beginPath();
+					context.moveTo(-30,0);
+					context.lineTo(120,0);
+					context.stroke();
+					context.beginPath();
+					context.arc(0,0,10,0,Math.PI*2,true);
+					context.fill();
+					
+					context.restore();
+					
+					context.beginPath();
+					context.lineWidth = 10;
+					context.strokeStyle = '#CCC';
+					context.arc(0,0,140,0,Math.PI*2,true);
+					context.stroke();					
+					context.restore();
+								
+					setTimeout(clock,100);
+				}		
+			clock();					
+			}
+		}
+	}
+</script>
+</head>
+<body>
+       <canvas id="myCanvas" width="400" height="400">Your browser does not support Canvas!</canvas>    
+</body>
+</html>
