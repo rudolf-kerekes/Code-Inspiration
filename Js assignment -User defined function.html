@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Povrsina Kvadra</title>
+</head>
+<body>
+	<h1>Proračun Površine Kvadra</h1>
+	<h3>Proračun se izračunava se po formuli P = 2*(a*b+b*c+c*a)</h3>
+
+	
+	<form >
+		Unesite dužinu Strane a :  <input type="number" id="stranica_A" value="1" min="0"><br/><br/>
+		Unesite dužinu Strane b :  <input type="number" id="stranica_B" value="1" min="0"><br/><br/>
+		Unesite dužinu Strane c :  <input type="number" id="stranica_C" value="1" min="0"><br/><br/>
+				<br/><br/>
+		  
+			<button id="dugmence">Računaj</button>
+	</form>
+	
+			<p><Br/><Br/>Površina Kvadra je :  <span id="SALDO"></span></p>
+
+	<script>
+		//registrovanje klika na dugme
+		var elementDugme = document.getElementById('dugmence');
+		elementDugme.addEventListener('click', klik);
+	
+		function površina_kvadra(a, b, c){
+			var p;
+			p=2*(a*b+a*c+b*c);
+			return p;
+			}
+			
+		function klik(event){ 
+			event.preventDefault();
+
+			//unete vrednosti 
+			var Ax = document.getElementById('stranica_A').value;
+			var Bx = document.getElementById('stranica_B').value;
+			var Cx = document.getElementById('stranica_C').value;
+			console.log(Ax, Bx, Cx); //proverava
+
+			var P = površina_kvadra(Ax, Bx, Cx); //izracunavam povrsinu		
+			console.log(P); //provera
+
+			//prikaz rezultata
+			var elementRezultat = document.getElementById('SALDO');
+			elementRezultat.innerHTML = P 
+		}
+	</script>
+	
+</body>
+</html>

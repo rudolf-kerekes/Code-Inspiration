@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>COMBO BOX</title>
+
+	<style>
+	#wrapper{
+		margin:0 auto;
+		width:370px;
+		background-color: yellow;
+		text-align:center;
+	}
+	
+	#out{
+		margin-top:100px;
+		padding-left:50px
+		width:110px;
+		height:40px;
+		border:2px dotted #66cc00;
+		text-align:center;
+		background-color: gray;
+		color:white;
+	}
+	</style>
+</head>
+
+<body>
+	<h2>Zadatak: Combo Box</h2><br><br>
+	<div id="wrapper">
+
+		<h3>Vaša školska sprema je:</h3>
+	<!--	<div id="out"></div><br>    -->
+			
+			<form>
+				<select onchange="funkcija()" id="status">
+					<option value="Osnovna škola">Osnovna škola
+					<option value="Srednja škola">Srednja škola
+					<option value="Viša škola">Viša škola
+					<option value="Fakultet">Fakultet
+				</select>
+			</form>
+	    
+	
+		<div id="out"><br>Uneli ste:</div>
+		<script>
+			function funkcija(){
+				var odgovor = document.getElementById("status").value;
+				var div_za_ispis = document.getElementById("out");
+				div_za_ispis.innerHTML = odgovor;				
+			}		
+		</script>
+	</div>		
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Izračunavanje površine kruga</title>
+</head>
+
+<body>
+	<h3>Molimo unesite vrednost za poluprecnik kruga:</h3>
+
+	<script>
+	
+	var poluprecnik = prompt("Ukucajte dužinu poluprečnika");
+	var kvadratpoluprecnika = Math.pow(poluprecnik,2);
+	var broj_pi =  Math.PI;
+	var povrsina = kvadratpoluprecnika * broj_pi;
+	document.write("<h3>Uneta dužina poluprečnika je:</h3> " + poluprecnik + 
+		"<h3>Povrsina kruga se racuna po formuli P = R<sup>2</sup> * <em>&#928;</em></h3><h3>površina kruga je:</h3>" + povrsina );
+	
+	
+	</script>
+
+
+
+	
+</body>
+</html>
