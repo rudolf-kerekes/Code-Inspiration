@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Task - I love to smile</title>
+
+<style type="text/css">
+	#myCanvas {
+		background:#efe;
+		border:2px dashed #A9E;
+	}
+</style>
+
+<script type="text/javascript">
+	window.onload = function() {
+		var elem = document.getElementById('myCanvas');
+		
+		if (elem && elem.getContext) {
+			var context = elem.getContext('2d');
+			if (context) {
+				
+				
+				context.beginPath();
+				context.lineWidth = 20;
+				context.lineCap = "butt";
+				context.moveTo(70,100);
+				context.lineTo(70,200);	
+				context.stroke();
+				
+				
+				
+				context.fillStyle = "#ff0000";
+				context.strokeStyle = "#aa0000";
+				context.lineWidth = 3;
+				
+				context.beginPath();
+				context.moveTo(170,120);
+				context.bezierCurveTo(210, 70, 250, 150, 170, 200);
+				context.moveTo(170,120);
+				context.bezierCurveTo(130, 70, 80, 150, 170, 200);
+				context.fill();
+				context.stroke();
+				
+				context.fillStyle = "yellow";
+				context.strokeStyle = "#ff9999";
+				context.lineWidth = 2;
+				context.beginPath();
+				context.arc(307,153,50,(Math.PI/180)*0,(Math.PI/180)*360);	
+				context.fill();
+				context.stroke();
+		
+				context.beginPath();
+				context.arc(307,153,40,(Math.PI/180)*180,(Math.PI/180)*360,true);
+				context.fill();
+				context.stroke();
+				
+				context.fillStyle = "#ff9999";
+				context.beginPath();
+				context.arc(285,140,6,(Math.PI/180)*0,(Math.PI/180)*360);	
+				context.fill();
+				context.stroke();
+				context.beginPath();
+				context.arc(330,140,6,(Math.PI/180)*0,(Math.PI/180)*360);	
+				context.fill();
+				context.stroke();
+			}
+		}
+	}
+</script>
+
+</head>
+
+<body>
+
+	<canvas id="myCanvas" width="415" height="300">Nece da moze u ovaj browser - mnogo je mator pa ne podrzava Canvas!</canvas>
+    
+</body>
+</html>
